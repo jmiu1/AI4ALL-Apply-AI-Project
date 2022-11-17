@@ -2,7 +2,7 @@
 
 We created an optimized system of three classifiers for diagnosing medical conditions based on patient medical history and lifestyle.
 
-The three classifiers are 
+The three classifiers are:
 - Naive Bayes
 - Multi-Layer Perceptron
 - Logistic Regression
@@ -11,4 +11,6 @@ Currently, automated medical diagnosis systems fueled by machine learning algori
 
 We will be using two Kaggle datasets to train our various machine learning models to predict both diabetes and cardiovascular disease. We note the latter dataset includes patient lifestyle choices (smoking, alcohol intake, physical activity, etc.) which provides our models with even more data to learn upon than simply patient medical history.
 
-We are capable of investigating the impact of our work by posting our work to GitHub and by making this system available globally. Meaning, anyone can reach out to us to describe said impact or ask questions to further the models.
+Datasets:
+- [Cardiovascular Dataset](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset)
+- [Diabetes Dataset](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset)
