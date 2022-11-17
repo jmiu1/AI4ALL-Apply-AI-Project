@@ -1,0 +1,154 @@
+{
+    "metadata": {
+        "kernelspec": {
+            "name": "python3",
+            "display_name": "Python 3 (ipykernel)",
+            "language": "python"
+        }
+    },
+    "nbformat": 4,
+    "nbformat_minor": 2,
+    "cells": [
+        {
+            "attachments": {},
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "# User Interface to Predict Cardiovascular Disease or Diabetes"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 13,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "# Import Relavelent Libraries\n",
+                "import pandas as pd # for dataframes \u0026 series\n",
+                "import numpy as np # for dataframes\n",
+                "import pickle"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 14,
+            "metadata": {},
+            "outputs": [
+                {
+                    "name": "stdout",
+                    "output_type": "stream",
+                    "text": "Welcome to the office of Dr. Diagnosis, please choose the disease you are interested in\n\t1) Cardiovascular Disease\n\t2) Diabetes\n\t3) TikTok\n"
+                }
+            ],
+            "source": [
+                "# Basic print welcome to DrDiagnosis\n",
+                "print(\"Welcome to the office of Dr. Diagnosis, please choose the disease you are interested in\")\n",
+                "print(\"\\t1) Cardiovascular Disease\\n\\t2) Diabetes\\n\\t3) TikTok\")"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 15,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "# obtain user choice for disease\n",
+                "userInput = int(input(\"Please enter 1 or 2 for your choice: \"))"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 16,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "# declare dictionary of models and their accuracies\n",
+                "model_accuracy_dict = {\"cardio\":\n",
+                "                            {\"drDiagnosis_LogRegr_cardio.sav\": 0.7209420289855073,\n",
+                "                            \"drDiagnosis_MLP_cardio.sav\": 0.7196376811594203,\n",
+                "                            \"drDiagnosis_NB_cardio.sav\": 0.7142753623188406},\n",
+                "                        \"diabetes\":\n",
+                "                            {\"drDiagnosis_LogRegr_diabetes.sav\": 0.7496994129712143,\n",
+                "                            \"drDiagnosis_MLP_diabetes.sav\": 0.7535186363957848,\n",
+                "                            \"drDiagnosis_NB_diabetes.sav\": 0.7395855435320744}\n",
+                "                        } "
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 17,
+            "metadata": {},
+            "outputs": [
+                {
+                    "name": "stdout",
+                    "output_type": "stream",
+                    "text": "Model chosen: drDiagnosis_MLP_diabetes.sav\t Model Accuracy: 0.7535186363957848\n"
+                }
+            ],
+            "source": [
+                "# select model based off user-choice for disease and highest accuracy model\n",
+                "# delcare model selection and model accuracy to be populated from model_accuracy_dict above\n",
+                "model_selection = \"\"\n",
+                "model_accuracy = 0\n",
+                "# if Cardiovascular_Disease\n",
+                "if(userInput == 1):\n",
+                "    model_selection = max(model_accuracy_dict[\"cardio\"], key=model_accuracy_dict[\"cardio\"].get)\n",
+                "    model_accuracy = max(model_accuracy_dict[\"cardio\"].values())\n",
+                "# if Diabetes\n",
+                "elif (userInput == 2):\n",
+                "    model_selection = max(model_accuracy_dict[\"diabetes\"], key=model_accuracy_dict[\"diabetes\"].get)\n",
+                "    model_accuracy = max(model_accuracy_dict[\"diabetes\"].values())\n",
+                "# display model chosen and its respective accuracy\n",
+                "print(\"Model chosen: {0}\\t Model Accuracy: {1}\".format(model_selection,model_accuracy))"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 22,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "# Load the Model in \"rb\" mode; opens the file in binary format for reading\n",
+                "model_selection_path = \"supervisedLearning/models/\"+model_selection\n",
+                "loaded_model = pickle.load(open(model_selection_path, 'rb'))"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 7,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "# obtain user input file for diagnosing (their medical history / lifestyle)\n",
+                "patidf = pd"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 8,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "# modify input into dataframe, drop columns that are not used for chosen disease"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 9,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "# pass input_df into model and obtain user_prediction"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 10,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "# display user prediction to user and the accuracy of the model"
+            ]
+        }
+    ]
+}
